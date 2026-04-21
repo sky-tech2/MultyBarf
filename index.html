@@ -9,16 +9,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;600;800&display=swap" rel="stylesheet">
     
     <style>
-        /* Estilos Generales */
+        /* --- ANIMACIONES --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate { opacity: 0; animation: fadeInUp 0.8s ease-out forwards; }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        .delay-5 { animation-delay: 1s; }
+
+        /* --- ESTILOS BASE --- */
         body { 
             font-family: 'Lexend', sans-serif; 
             background-color: #F4F7F6; 
             display: flex; 
             justify-content: center; 
-            align-items: center; 
-            min-height: 100vh;
-            margin: 0;
             padding: 20px; 
+            margin: 0;
         }
 
         .glass-card { 
@@ -26,109 +37,88 @@
             width: 100%; 
             max-width: 400px; 
             border-radius: 30px; 
-            padding: 30px; 
+            padding: 25px; 
             text-align: center; 
             box-shadow: 0 20px 40px rgba(0,0,0,0.05); 
         }
 
-        /* Área de Imagen Personalizada */
-        .avatar-container {
-            width: 100%;
-            margin-bottom: 15px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .avatar-container img {
-            width: 100%; 
-            max-width: 250px; /* Puedes subir este número si la quieres más grande */
+        /* Imágenes */
+        .logo-container { width: 100%; margin-bottom: 10px; display: flex; justify-content: center; }
+        .logo-container img {
+            width: 140px; 
             height: auto;
             border-radius: 20px; 
-            border: 4px solid #90EE90; 
-            object-fit: cover;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border: 3px solid #90EE90;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
         }
 
-        h1 { color: #2D5A27; margin-bottom: 5px; font-weight: 800; font-size: 1.8em; }
-        .subtitle { color: #666; font-size: 0.95em; margin-bottom: 30px; }
+        .dog-image-container { width: 100%; margin: 20px 0; border-radius: 20px; overflow: hidden; }
+        .dog-image-container img { width: 100%; height: auto; display: block; border-radius: 15px; }
+
+        h1 { color: #2D5A27; margin: 10px 0 5px 0; font-weight: 800; font-size: 1.6em; }
+        .subtitle { color: #666; font-size: 0.9em; margin-bottom: 20px; }
+
+        .history-text {
+            color: #444;
+            font-size: 0.92em;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            padding: 0 10px;
+            font-weight: 300;
+        }
+        .history-text strong { color: #2D5A27; font-weight: 600; }
         
         .cta-whatsapp { 
-            display: block; 
-            background: #25D366; 
-            color: white; 
-            text-decoration: none; 
-            padding: 18px; 
-            border-radius: 15px; 
-            font-weight: 600; 
-            margin-bottom: 25px;
-            transition: transform 0.2s;
-            font-size: 1.1em;
+            display: block; background: #25D366; color: white; text-decoration: none; 
+            padding: 16px; border-radius: 15px; font-weight: 600; margin-bottom: 25px;
+            transition: all 0.3s ease; font-size: 1.05em;
         }
-        .cta-whatsapp:active { transform: scale(0.98); }
+        .cta-whatsapp:hover { transform: scale(1.02); box-shadow: 0 5px 15px rgba(37,211,102,0.2); }
 
-        .divider { 
-            color: #bbb; 
-            font-size: 0.8em; 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-            margin-bottom: 20px; 
-        }
+        .divider { color: #bbb; font-size: 0.75em; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; }
 
-        /* Redes Sociales */
-        .social-links { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 15px; 
-            margin-bottom: 25px; 
-        }
+        .social-links { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
         .social-item { 
-            background: #f9f9f9; 
-            padding: 15px; 
-            border-radius: 15px; 
-            text-decoration: none; 
-            color: #333;
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            font-size: 0.85em;
-            transition: background 0.3s;
+            background: #f9f9f9; padding: 12px; border-radius: 12px; text-decoration: none; color: #333;
+            display: flex; flex-direction: column; align-items: center; font-size: 0.8em; transition: 0.3s;
         }
-        .social-item:hover { background: #f0f0f0; }
-        .social-item i { font-size: 1.6em; margin-bottom: 8px; color: #2D5A27; }
+        .social-item:hover { transform: translateY(-3px); background: #f0f0f0; }
+        .social-item i { font-size: 1.4em; margin-bottom: 5px; color: #2D5A27; }
 
-        /* Botón de Guardar Contacto */
         .btn-save {
-            display: block; 
-            background: #2D5A27; 
-            color: white; 
-            text-decoration: none;
-            padding: 15px; 
-            border-radius: 15px; 
-            font-weight: 600;
+            display: block; background: #2D5A27; color: white; text-decoration: none;
+            padding: 14px; border-radius: 12px; font-weight: 600; transition: 0.3s;
         }
+        .btn-save:hover { opacity: 0.9; }
         
-        footer { margin-top: 30px; color: #bbb; font-size: 0.8em; }
+        footer { margin-top: 25px; color: #bbb; font-size: 0.75em; }
     </style>
 </head>
 <body>
 
-    <div class="glass-card">
+    <div class="glass-card animate">
         <header>
-            <div class="avatar-container">
+            <div class="logo-container animate delay-1">
                 <img src="imagenes/logo.jpeg" alt="MultyBarf Logo">
             </div>
-            <h1>MultyBarf</h1>
-            <p class="subtitle">Nutrición natural para perros</p>
+            <h1 class="animate delay-2">MultyBarf</h1>
+            <p class="subtitle animate delay-2">Nutrición natural para perros</p>
         </header>
 
         <main>
-            <a href="https://wa.me/573012916446" class="cta-whatsapp" target="_blank">
+            <a href="https://wa.me/573012916446" class="cta-whatsapp animate delay-3" target="_blank">
                 <i class="fab fa-whatsapp"></i> Contáctanos directamente
             </a>
 
-            <div class="divider">Conecta con nosotros</div>
+            <p class="history-text animate delay-3">
+                Expertos en nutrición natural con más de <strong>17 años de trayectoria</strong>. 
+                Recetas artesanales con ingredientes frescos de alta calidad. Incluimos asesoría 
+                permanente y domicilio. <strong>100% natural</strong>, sin químicos.
+            </p>
 
-            <div class="social-links">
+            <div class="divider animate delay-4">Conecta con nosotros</div>
+
+            <div class="social-links animate delay-4">
                 <a href="https://instagram.com/multybarf" target="_blank" class="social-item">
                     <i class="fab fa-instagram" style="color: #E1306C;"></i>
                     <span>Instagram</span>
@@ -147,12 +137,16 @@
                 </a>
             </div>
 
-            <a href="contacto.vcf" class="btn-save" download>
+            <div class="dog-image-container animate delay-5">
+                <img src="imagenes/perritochef.avif" alt="Perrito feliz MultyBarf">
+            </div>
+
+            <a href="contacto.vcf" class="btn-save animate delay-5" download>
                 <i class="fas fa-id-card"></i> Guardar contacto
             </a>
         </main>
 
-        <footer>
+        <footer class="animate delay-5">
             <p>Medellín, Antioquia</p>
         </footer>
     </div>
