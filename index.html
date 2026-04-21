@@ -7,25 +7,121 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Estilos Generales */
+        body { 
+            font-family: 'Lexend', sans-serif; 
+            background-color: #F4F7F6; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px; 
+        }
+
+        .glass-card { 
+            background: white; 
+            width: 100%; 
+            max-width: 400px; 
+            border-radius: 30px; 
+            padding: 30px; 
+            text-align: center; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05); 
+        }
+
+        /* Área de Imagen Personalizada */
+        .avatar-container {
+            width: 100%;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .avatar-container img {
+            width: 100%; 
+            max-width: 250px; /* Puedes subir este número si la quieres más grande */
+            height: auto;
+            border-radius: 20px; 
+            border: 4px solid #90EE90; 
+            object-fit: cover;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        h1 { color: #2D5A27; margin-bottom: 5px; font-weight: 800; font-size: 1.8em; }
+        .subtitle { color: #666; font-size: 0.95em; margin-bottom: 30px; }
+        
+        .cta-whatsapp { 
+            display: block; 
+            background: #25D366; 
+            color: white; 
+            text-decoration: none; 
+            padding: 18px; 
+            border-radius: 15px; 
+            font-weight: 600; 
+            margin-bottom: 25px;
+            transition: transform 0.2s;
+            font-size: 1.1em;
+        }
+        .cta-whatsapp:active { transform: scale(0.98); }
+
+        .divider { 
+            color: #bbb; 
+            font-size: 0.8em; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            margin-bottom: 20px; 
+        }
+
+        /* Redes Sociales */
+        .social-links { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 15px; 
+            margin-bottom: 25px; 
+        }
+        .social-item { 
+            background: #f9f9f9; 
+            padding: 15px; 
+            border-radius: 15px; 
+            text-decoration: none; 
+            color: #333;
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            font-size: 0.85em;
+            transition: background 0.3s;
+        }
+        .social-item:hover { background: #f0f0f0; }
+        .social-item i { font-size: 1.6em; margin-bottom: 8px; color: #2D5A27; }
+
+        /* Botón de Guardar Contacto */
+        .btn-save {
+            display: block; 
+            background: #2D5A27; 
+            color: white; 
+            text-decoration: none;
+            padding: 15px; 
+            border-radius: 15px; 
+            font-weight: 600;
+        }
+        
+        footer { margin-top: 30px; color: #bbb; font-size: 0.8em; }
+    </style>
 </head>
 <body>
 
     <div class="glass-card">
         <header>
-            <div class="avatar">
-                <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=200" alt="MultyBarf Logo">
+            <div class="avatar-container">
+                <img src="imagenes/logo.jpeg" alt="MultyBarf Logo">
             </div>
             <h1>MultyBarf</h1>
             <p class="subtitle">Nutrición natural para perros</p>
         </header>
 
         <main>
-            <section class="about-box">
-                <h2>¿QUIÉNES SOMOS?</h2>
-                <p>Expertos en nutrición natural con más de 17 años de trayectoria. Recetas artesanales con ingredientes frescos de alta calidad. Incluimos asesoría permanente y domicilio. <strong>100% natural</strong>, sin químicos, para el bienestar y la vitalidad de tu mejor amigo.</p>
-            </section>
-
             <a href="https://wa.me/573012916446" class="cta-whatsapp" target="_blank">
                 <i class="fab fa-whatsapp"></i> Contáctanos directamente
             </a>
@@ -34,19 +130,19 @@
 
             <div class="social-links">
                 <a href="https://instagram.com/multybarf" target="_blank" class="social-item">
-                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-instagram" style="color: #E1306C;"></i>
                     <span>Instagram</span>
                 </a>
                 <a href="https://www.tiktok.com/@multybarf" target="_blank" class="social-item">
-                    <i class="fab fa-tiktok"></i>
+                    <i class="fab fa-tiktok" style="color: #000;"></i>
                     <span>TikTok</span>
                 </a>
                 <a href="https://facebook.com/multybarf" target="_blank" class="social-item">
-                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-facebook-f" style="color: #1877F2;"></i>
                     <span>Facebook</span>
                 </a>
                 <a href="mailto:ventas@multybarf.com" class="social-item">
-                    <i class="fas fa-envelope"></i>
+                    <i class="fas fa-envelope" style="color: #FF8C00;"></i>
                     <span>Correo</span>
                 </a>
             </div>
